@@ -15,6 +15,24 @@ grd.addColorStop(1, "rgba(134, 27, 74, 1)");
 ctx.fillStyle = grd;
 ctx.fill();
 
+// Functions for building Sky
+// Planet A
+ctx.beginPath()
+ctx.arc(xBase-200, yBase+100, 40, 0, 2 * Math.PI)
+var grd = ctx.createRadialGradient(190, 210, 30, 200, 220, 90);
+grd.addColorStop(0, "rgba(247, 185, 80, .1)");
+grd.addColorStop(1, "rgba(100, 1, 73, 1)");
+ctx.fillStyle = grd
+ctx.fill()
+
+// Planet B
+ctx.beginPath()
+ctx.arc(xBase+350, yBase-80, 60, 0, 2 * Math.PI)
+var grd = ctx.createRadialGradient(750, 110, 20, 740, 120, 120);
+grd.addColorStop(0, "rgba(247, 185, 80, .3)");
+grd.addColorStop(1, "rgba(100, 1, 73, 1)");
+ctx.fillStyle = grd
+ctx.fill()
 
 
 // Functions for Building UFO
