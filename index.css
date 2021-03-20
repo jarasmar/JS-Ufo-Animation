@@ -10,5 +10,6 @@ body {
 }
 
 #app-canvas {
-  background-color: aquamarine;
+  background: rgb(71,0,68);
+  background: linear-gradient(180deg, rgba(71,0,68,1) 46%, rgba(100,1,73,1) 100%);
 }
