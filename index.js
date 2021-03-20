@@ -149,6 +149,24 @@ function buildAlien() {
   ctx.ellipse(xBase-4.5, yBase-46, 4, 2.5, Math.PI / 4, 0, 2 * Math.PI);
   ctx.fillStyle = 'rgba(0, 0, 0, 1)'
   ctx.fill()
+
+  // Build Alien Left Arm
+  ctx.beginPath()
+  ctx.moveTo(xBase-25, yBase-40);
+  ctx.lineTo(xBase-15, yBase-30);
+  ctx.lineTo(xBase-5, yBase-30);
+  ctx.lineTo(xBase-20, yBase-40);
+  ctx.fillStyle = 'rgba(0, 200, 151, 1)'
+  ctx.fill()
+
+  // Build Alien Right Arm
+  ctx.beginPath()
+  ctx.moveTo(xBase+25, yBase-40);
+  ctx.lineTo(xBase+15, yBase-30);
+  ctx.lineTo(xBase+5, yBase-30);
+  ctx.lineTo(xBase+20, yBase-40);
+  ctx.fillStyle = 'rgba(0, 200, 151, 1)'
+  ctx.fill()
 }
 
 
