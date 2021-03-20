@@ -67,7 +67,7 @@ function createPurpleStar(x, y, size) {
   ctx.fillStyle = 'rgb(134, 27, 74, .3)'
   ctx.fill()
 }
-function createWhiteStar(x, y, size) {
+function createPointyStar(x, y, size) {
 ctx.beginPath();
 ctx.moveTo(x, y);
 ctx.lineTo(x+size, y+2*size)
@@ -119,12 +119,36 @@ function addStars() {
   createYellowStar(530, 180, 5) 
   createYellowStar(490, 220, 6) 
 
-  createWhiteStar(100, 100, 10)
-  createWhiteStar(630, 80, 5)
-  createWhiteStar(700, 300, 2)
-  createWhiteStar(50, 200, 3)
-  createWhiteStar(270, 280, 5)
-  createWhiteStar(560, 310, 4)
+  createPointyStar(100, 100, 10)
+  createPointyStar(630, 80, 5)
+  createPointyStar(700, 300, 2)
+  createPointyStar(50, 200, 3)
+  createPointyStar(270, 280, 5)
+  createPointyStar(560, 310, 4)
+}
+
+function buildAlien() {
+  // Build Alien Head
+  ctx.beginPath()
+  ctx.arc(xBase, yBase-45, 10, 0, 2 * Math.PI)
+  ctx.fillStyle = 'rgba(0, 200, 151, 1)'
+  ctx.fill()
+
+  ctx.beginPath()
+  ctx.ellipse(xBase, yBase-50, 9, 18, 0, 2*Math.PI, Math.PI);
+  ctx.fillStyle = 'rgba(0, 200, 151, 1)'
+  ctx.fill()
+
+  // Build Alien Eyes
+  ctx.beginPath();
+  ctx.ellipse(xBase+4.5, yBase-46, 2.5, 4, Math.PI / 4, 0, 2 * Math.PI);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1)'
+  ctx.fill()
+
+  ctx.beginPath();
+  ctx.ellipse(xBase-4.5, yBase-46, 4, 2.5, Math.PI / 4, 0, 2 * Math.PI);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1)'
+  ctx.fill()
 }
 
 
@@ -208,4 +232,5 @@ addStars();
 addUfoLight();
 buildUfoBody();
 addUfoWindows();
+buildAlien();
 
