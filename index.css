@@ -10,7 +10,5 @@ body {
 }
 
 #app-canvas {
-  width: 850px;
-  height: 400px;
   background-color: aquamarine;
 }
