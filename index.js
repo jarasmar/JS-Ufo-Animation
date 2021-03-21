@@ -366,4 +366,39 @@ function fillCanvas() {
   addUFO(); 
 }
 
+// Music Control Buttons
+var muteBtn = document.getElementById("mute-music-btn");
+var soundBtn = document.getElementById("play-music-btn");
+
+// Music Functionality
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+      this.sound.play();
+  }
+  this.stop = function(){
+      this.sound.pause();
+  }    
+}
+var myMusic = new sound("music.wav");
+
+function playMusic(){
+  myMusic.play();
+  muteBtn.style.display="inline";
+  soundBtn.style.display="none";
+}
+function muteMusic(){
+  myMusic.stop();
+  soundBtn.style.display="inline";
+  muteBtn.style.display="none";
+}
+
+// Initialise Animation and Sound
+playMusic()
+soundBtn.style.display="none";
 setInterval(fillCanvas, 15)
