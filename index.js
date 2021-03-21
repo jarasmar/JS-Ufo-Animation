@@ -6,6 +6,8 @@ let xBase = 400;
 let yBase = 100;
 
 let moveDown = true;
+let moveRight = true;
+let landing = true;
 
 // Functions for Building Background
 // Landing Planet
@@ -262,17 +264,34 @@ function addUFO() {
     addUfoWindows();
 
     changeYAxis()
+    changeXAxis()
 }
 
 // Control UFO Movement
 function changeYAxis() {
   if (yBase == 400) {
     moveDown = false;
+    landing = false;
   }
   if (yBase == 100) {
     moveDown = true;
+    landing = true;
   }
   moveDown ? yBase++ : yBase--
+}
+// Add lateral moves while landing
+function changeXAxis() {
+  if (xBase == 470) {
+    moveRight = false;
+  }
+  if (xBase == 320) {
+    moveRight = true;
+  }
+  if (moveRight && landing) {
+    xBase++
+  } else if (!moveRight && landing) {
+    xBase--
+  }
 }
 
 // Render everything from scratch every x interval
