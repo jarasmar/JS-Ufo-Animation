@@ -110,7 +110,7 @@ function addStars() {
   createPurpleStar(100, 200, 5)
   createPurpleStar(230, 100, 6)
   createPurpleStar(760, 230, 5)
-  createPurpleStar(560, 300, 3)
+  createPurpleStar(560, 270, 3)
   createPurpleStar(3100, 50, 5)
   createPurpleStar(620, 170, 7)
 
@@ -255,9 +255,10 @@ function addUfoWindows() {
 
 function addUFO() {
   buildAlien();
+  addUfoLight();
   buildUfoBody();
   addUfoWindows();
-  addUfoLight();
+  
 }
 
 
