@@ -1,11 +1,13 @@
 const canvas = document.getElementById("app-canvas");
 const ctx = canvas.getContext("2d");
 
-const xBase = 400;
-const yBase = 100;
+// Constants for UFO Placement and Movement
+let xBase = 400;
+let yBase = 100;
+
+let moveDown = true;
 
 // Functions for Building Background
-
 // Landing Planet
 function createLandingPlanet() {
   ctx.beginPath();
@@ -254,13 +256,24 @@ function addUfoWindows() {
 }
 
 function addUFO() {
-  buildAlien();
-  addUfoLight();
-  buildUfoBody();
-  addUfoWindows();
-  
+    buildAlien();
+    addUfoLight();
+    buildUfoBody();
+    addUfoWindows();
+
+    changeYAxis()
 }
 
+// Control UFO Movement
+function changeYAxis() {
+  if (yBase == 400) {
+    moveDown = false;
+  }
+  if (yBase == 100) {
+    moveDown = true;
+  }
+  moveDown ? yBase++ : yBase--
+}
 
 // Render everything from scratch every x interval
 function fillCanvas() {
@@ -271,4 +284,4 @@ function fillCanvas() {
   addUFO(); 
 }
 
-setInterval(fillCanvas, 10)
+setInterval(fillCanvas, 15)
