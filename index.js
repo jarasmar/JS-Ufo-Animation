@@ -173,8 +173,10 @@ function buildAlien() {
   ctx.fillStyle = 'rgba(0, 0, 0, 1)'
   ctx.fill()
 
-  createAlienArms(armMove);
-
+  // Alien arms wave only at landing
+  if (yBase >= 350 && yBase <= 400) {
+    createAlienArms(armMove);
+  }
 }
 
 // Build and move Alien Arms
