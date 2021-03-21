@@ -2,6 +2,8 @@
 
 To see the deployed app [Click Here](https://jarasmar.github.io/JS-Ufo-Animation/)
 
+![Demo](./Ufo-Animation-Demo.gif)
+
 **Must include:**
 
 - [x] A sky
