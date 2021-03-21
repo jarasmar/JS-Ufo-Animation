@@ -192,10 +192,10 @@ function createAlienArms(armMove) {
   ctx.fillStyle = 'rgba(0, 200, 151, 1)'
   ctx.fill()
 
-  controlAlienArms()
+  moveAlienArms()
 }
 
-function controlAlienArms() {
+function moveAlienArms() {
   if (armMove == 0) {
     armMoveUp = false
   }
