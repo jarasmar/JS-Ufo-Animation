@@ -9,6 +9,9 @@ let moveDown = true;
 let moveRight = true;
 let landing = true;
 
+let armMove = 0;
+let armMoveUp = false;
+
 // Functions for Building Background
 // Landing Planet
 function createLandingPlanet() {
@@ -164,23 +167,41 @@ function buildAlien() {
   ctx.fillStyle = 'rgba(0, 0, 0, 1)'
   ctx.fill()
 
+  createAlienArms(armMove);
+
+}
+
+// Build and move Alien Arms
+function createAlienArms(armMove) {
   // Build Alien Left Arm
   ctx.beginPath()
-  ctx.moveTo(xBase-25, yBase-40);
+  ctx.moveTo(xBase-25, yBase-40-armMove);
   ctx.lineTo(xBase-15, yBase-30);
   ctx.lineTo(xBase-5, yBase-30);
-  ctx.lineTo(xBase-20, yBase-40);
+  ctx.lineTo(xBase-20, yBase-40-armMove);
   ctx.fillStyle = 'rgba(0, 200, 151, 1)'
   ctx.fill()
 
   // Build Alien Right Arm
   ctx.beginPath()
-  ctx.moveTo(xBase+25, yBase-40);
+  ctx.moveTo(xBase+25, yBase-40-armMove);
   ctx.lineTo(xBase+15, yBase-30);
   ctx.lineTo(xBase+5, yBase-30);
-  ctx.lineTo(xBase+20, yBase-40);
+  ctx.lineTo(xBase+20, yBase-40-armMove);
   ctx.fillStyle = 'rgba(0, 200, 151, 1)'
   ctx.fill()
+
+  controlAlienArms()
+}
+
+function controlAlienArms() {
+  if (armMove == 0) {
+    armMoveUp = false
+  }
+  if (armMove == 5) {
+    armMoveUp = true
+  }
+  armMoveUp ? armMove-- : armMove++
 }
 
 // Functions for Building UFO Structure
