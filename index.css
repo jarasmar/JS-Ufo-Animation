@@ -6,10 +6,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: azure;
+  background-color: #C8FCEA;
+  /* background-color: #FFF4FF; */
 }
 
 #app-canvas {
   background: rgb(71,0,68);
   background: linear-gradient(180deg, rgba(71,0,68,1) 46%, rgba(100,1,73,1) 100%);
+  border-radius: 4px;
 }

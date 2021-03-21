@@ -4,22 +4,24 @@ const ctx = canvas.getContext("2d");
 const xBase = 400;
 const yBase = 100;
 
-// Functions for Building Planet
+// Functions for Building Background
 
-// Planet Base
-ctx.beginPath();
-ctx.ellipse(400, 450, 430, 100, 0, Math.PI, 0);
-var grd = ctx.createLinearGradient(0, 300, 0, 400);
-grd.addColorStop(0, "rgba(247, 185, 80, 1)");
-grd.addColorStop(1, "rgba(134, 27, 74, 1)");
-ctx.fillStyle = grd;
-ctx.fill();
+// Landing Planet
+function createLandingPlanet() {
+  ctx.beginPath();
+  ctx.ellipse(400, 450, 430, 100, 0, Math.PI, 0);
+  var grd = ctx.createLinearGradient(0, 300, 0, 400);
+  grd.addColorStop(0, "rgba(247, 185, 80, 1)");
+  grd.addColorStop(1, "rgba(134, 27, 74, 1)");
+  ctx.fillStyle = grd;
+  ctx.fill();  
+}
 
 // Functions for building Sky
 function addPlanets() {
   // Planet A
   ctx.beginPath()
-  ctx.arc(xBase-200, yBase+100, 40, 0, 2 * Math.PI)
+  ctx.arc(200, 200, 40, 0, 2 * Math.PI)
   var grd = ctx.createRadialGradient(190, 210, 30, 200, 220, 90);
   grd.addColorStop(0, "rgba(247, 185, 80, .1)");
   grd.addColorStop(1, "rgba(100, 1, 73, 1)");
@@ -28,7 +30,7 @@ function addPlanets() {
 
   // Planet B
   ctx.beginPath()
-  ctx.arc(xBase+350, yBase-80, 60, 0, 2 * Math.PI)
+  ctx.arc(750, 20, 60, 0, 2 * Math.PI)
   var grd = ctx.createRadialGradient(750, 110, 20, 740, 120, 120);
   grd.addColorStop(0, "rgba(247, 185, 80, .3)");
   grd.addColorStop(1, "rgba(100, 1, 73, 1)");
@@ -127,6 +129,14 @@ function addStars() {
   createPointyStar(560, 310, 4)
 }
 
+function addBackground() {
+  createLandingPlanet();
+  addPlanets();
+  addStars();
+}
+
+
+// FUnctions for building UFO
 function buildAlien() {
   // Build Alien Head
   ctx.beginPath()
@@ -169,9 +179,7 @@ function buildAlien() {
   ctx.fill()
 }
 
-
-
-// Functions for Building UFO
+// Functions for Building UFO Structure
 function buildUfoBody(){
   // UFO Body top half
   ctx.beginPath();
@@ -199,15 +207,6 @@ function buildUfoBody(){
   ctx.stroke();
 }
 
-function addUfoLight() {
-  // Outer Shade
-  buildLightShade(180, 0.05)
-  // Middle Shade
-  buildLightShade(160, 0.1)
-  // Inner Shade
-  buildLightShade(140, 0.15)
-}
-
 function buildLightShade(xChange, opacity) {
   ctx.beginPath();
   ctx.moveTo(xBase-20, yBase+16);
@@ -216,6 +215,15 @@ function buildLightShade(xChange, opacity) {
   ctx.lineTo(xBase+20, yBase+16)
   ctx.fillStyle = `rgba(249, 248, 113, ${opacity})`
   ctx.fill();
+}
+
+function addUfoLight() {
+  // Outer Shade
+  buildLightShade(180, 0.05)
+  // Middle Shade
+  buildLightShade(160, 0.1)
+  // Inner Shade
+  buildLightShade(140, 0.15)
 }
 
 function addUfoWindows() {
@@ -245,10 +253,13 @@ function addUfoWindows() {
   ctx.fill()
 }
 
-addPlanets();
-addStars();
-addUfoLight();
-buildUfoBody();
-addUfoWindows();
-buildAlien();
+function addUFO() {
+  buildAlien();
+  buildUfoBody();
+  addUfoWindows();
+  addUfoLight();
+}
 
+// Call functions
+addBackground();
+addUFO();
