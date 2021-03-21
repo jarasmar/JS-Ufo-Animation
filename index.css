@@ -15,3 +15,14 @@ body {
   background: linear-gradient(180deg, rgba(71,0,68,1) 46%, rgba(100,1,73,1) 100%);
   border-radius: 4px;
 }
+
+#sound-controls {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+#sound-controls a {
+  font-size: 30px;
+}
