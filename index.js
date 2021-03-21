@@ -18,6 +18,12 @@ let stopArms = true;
 let windowOpacity = 0.8;
 let lowWindowLight = true;
 
+// Variables for Star Animations
+let starOpacity1 = 0.7
+let starOpacity2 = 0.5
+let starOpacity3 = 0.4
+let lowStarOpacity = true;
+
 // Functions for Building Background
 // Landing Planet
 function createLandingPlanet() {
@@ -82,33 +88,33 @@ function createPurpleStar(x, y, size) {
   ctx.fillStyle = 'rgb(134, 27, 74, .3)'
   ctx.fill()
 }
-function createPointyStar(x, y, size) {
+function createPointyStar(x, y, size, opacity) {
 ctx.beginPath();
 ctx.moveTo(x, y);
 ctx.lineTo(x+size, y+2*size)
 ctx.lineTo(x+2*size, y)
-ctx.fillStyle = `rgba(249, 248, 113, .7)`
+ctx.fillStyle = `rgba(249, 248, 113, ${opacity})`
 ctx.fill();  
 
 ctx.beginPath();
 ctx.moveTo(x, y);
 ctx.lineTo(x+size, y-2*size)
 ctx.lineTo(x+2*size, y)
-ctx.fillStyle = `rgba(249, 248, 113, .7)`
+ctx.fillStyle = `rgba(249, 248, 113, ${opacity})`
 ctx.fill();  
 
 ctx.beginPath();
 ctx.moveTo(x+size, y-size);
 ctx.lineTo(x-size, y)
 ctx.lineTo(x+size, y+size)
-ctx.fillStyle = `rgba(249, 248, 113, .7)`
+ctx.fillStyle = `rgba(249, 248, 113, ${opacity})`
 ctx.fill(); 
 
 ctx.beginPath();
 ctx.moveTo(x+size, y+size);
 ctx.lineTo(x+3*size, y)
 ctx.lineTo(x+size, y-size)
-ctx.fillStyle = `rgba(249, 248, 113, .7)`
+ctx.fillStyle = `rgba(249, 248, 113, ${opacity})`
 ctx.fill(); 
 }
 
@@ -134,12 +140,34 @@ function addStars() {
   createYellowStar(530, 180, 5) 
   createYellowStar(490, 220, 6) 
 
-  createPointyStar(100, 100, 10)
-  createPointyStar(630, 80, 5)
-  createPointyStar(700, 300, 2)
-  createPointyStar(50, 200, 3)
-  createPointyStar(270, 280, 5)
-  createPointyStar(560, 310, 4)
+  createPointyStar(100, 100, 10, starOpacity2)
+  createPointyStar(630, 80, 5, starOpacity1)
+  createPointyStar(700, 300, 2, starOpacity3)
+  createPointyStar(50, 200, 3, starOpacity1)
+  createPointyStar(270, 280, 5, starOpacity2)
+  createPointyStar(560, 310, 4, starOpacity3)
+
+  changeStarLight();
+}
+
+function changeStarLight() {
+  if (Math.round(starOpacity1 * 10) / 10 == 0.7) {
+    lowStarLight = true;
+  }
+  if (Math.round(starOpacity1 * 10) / 10 == 0.1) {
+    lowStarLight = false;
+  }
+
+  if (lowStarLight) {
+    starOpacity1 -= 0.02
+    starOpacity2 -= 0.01
+    starOpacity3 -= 0.01
+  }
+  if (!lowStarLight ) {
+    starOpacity1 += 0.02
+    starOpacity2 += 0.01
+    starOpacity3 += 0.01
+  }
 }
 
 function addBackground() {
