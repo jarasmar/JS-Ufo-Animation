@@ -34,7 +34,50 @@ function createLandingPlanet() {
   grd.addColorStop(1, "rgba(134, 27, 74, 1)");
   ctx.fillStyle = grd;
   ctx.fill();  
+
+  // Crater A
+  ctx.beginPath();
+  ctx.ellipse(200, 440, 120, 70, 0, Math.PI, 0);
+  ctx.fillStyle = "rgba(134, 27, 74, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(200, 380, 60, 10, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(100, 1, 73, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(200, 385, 40, 5, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(187, 71, 76, 1)";
+  ctx.fill(); 
+
+  // Crater B
+  ctx.beginPath();
+  ctx.ellipse(500, 430, 90, 50, 0, Math.PI, 0);
+  ctx.fillStyle = "rgba(134, 27, 74, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(500, 390, 50, 10, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(100, 1, 73, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(500, 395, 40, 5, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(187, 71, 76, 1)";
+  ctx.fill(); 
+
+  // Crater C
+  ctx.beginPath();
+  ctx.ellipse(570, 415, 50, 37, 0, Math.PI, 0);
+  ctx.fillStyle = "rgba(134, 27, 74, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(570, 385, 30, 7, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(100, 1, 73, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(570, 390, 20, 4, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(187, 71, 76, 1)";
+  ctx.fill(); 
 }
+
 
 // Functions for building Sky
 function addPlanets() {
@@ -427,6 +470,6 @@ function muteMusic(){
 }
 
 // Initialise Animation and Sound
-playMusic()
+// playMusic()
 soundBtn.style.display="none";
 setInterval(fillCanvas, 15)
