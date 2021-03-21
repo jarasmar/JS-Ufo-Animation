@@ -460,8 +460,8 @@ function fillCanvas() {
 }
 
 // Music Control Buttons
-var muteBtn = document.getElementById("mute-music-btn");
-var soundBtn = document.getElementById("play-music-btn");
+var musicOnIcon = document.getElementById("music-on-icon");
+var musicOffIcon = document.getElementById("music-off-icon");
 
 // Music Functionality
 function sound(src) {
@@ -482,16 +482,15 @@ var myMusic = new sound("music.wav");
 
 function playMusic(){
   myMusic.play();
-  muteBtn.style.display="inline";
-  soundBtn.style.display="none";
+  musicOnIcon.style.display="inline";
+  musicOffIcon.style.display="none";
 }
 function muteMusic(){
   myMusic.stop();
-  soundBtn.style.display="inline";
-  muteBtn.style.display="none";
+  musicOnIcon.style.display="none";
+  musicOffIcon.style.display="inline";
 }
 
 // Initialise Animation and Sound
-playMusic()
-soundBtn.style.display="none";
+muteMusic()
 setInterval(fillCanvas, 15)
