@@ -309,10 +309,10 @@ function changeWindowLight() {
   }
 
   // Windows light change only at takeoff and after alien arms stop moving (yBase <= 350)
-  if (lowWindowLight && !landing && yBase <= 320) {
+  if (lowWindowLight && !landing && yBase <= 340) {
     windowOpacity -= 0.1
   }
-  if (!lowWindowLight && !landing && yBase <= 320) {
+  if (!lowWindowLight && !landing && yBase <= 340) {
     windowOpacity += 0.1
   }
   if (landing) {
