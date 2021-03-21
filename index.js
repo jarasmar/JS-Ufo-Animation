@@ -1,7 +1,7 @@
 const canvas = document.getElementById("app-canvas");
 const ctx = canvas.getContext("2d");
 
-// Constants for UFO Placement and Movement
+// Variables for UFO Placement and Animation
 let xBase = 400;
 let yBase = 100;
 
@@ -9,9 +9,14 @@ let moveDown = true;
 let moveRight = true;
 let landing = true;
 
+// Variables for Alien animation
 let armMove = 0;
 let armMoveUp = false;
 let stopArms = true;
+
+// Variables for Windows Animation
+let windowOpacity = 0.8;
+let lowWindowLight = true;
 
 // Functions for Building Background
 // Landing Planet
@@ -267,28 +272,50 @@ function addUfoLight() {
 function addUfoWindows() {
   ctx.beginPath()
   ctx.ellipse(xBase-70, yBase-12, 4, 2, 0, 0, 2 * Math.PI);
-  ctx.fillStyle = 'rgb(249, 248, 113)'
+  ctx.fillStyle = `rgba(249, 248, 113, ${windowOpacity})`
   ctx.fill()
   
   ctx.beginPath()
   ctx.ellipse(xBase-40, yBase-14, 6, 3.5, 0, 0, 2 * Math.PI);
-  ctx.fillStyle = 'rgb(249, 248, 113)'
+  ctx.fillStyle = `rgba(249, 248, 113, ${windowOpacity})`
   ctx.fill()
 
   ctx.beginPath()
   ctx.ellipse(xBase, yBase-15, 8, 5, 0, 0, 2 * Math.PI);
-  ctx.fillStyle = 'rgb(249, 248, 113)'
+  ctx.fillStyle = `rgba(249, 248, 113, ${windowOpacity})`
   ctx.fill()
 
   ctx.beginPath()
   ctx.ellipse(xBase+40, yBase-14, 6, 3.5, 0, 0, 2 * Math.PI);
-  ctx.fillStyle = 'rgb(249, 248, 113)'
+  ctx.fillStyle = `rgba(249, 248, 113, ${windowOpacity})`
   ctx.fill()
 
   ctx.beginPath()
   ctx.ellipse(xBase+70, yBase-12, 4, 2, 0, 0, 2 * Math.PI);
-  ctx.fillStyle = 'rgb(249, 248, 113)'
+  ctx.fillStyle = `rgba(249, 248, 113, ${windowOpacity})`
   ctx.fill()
+
+  changeWindowLight();
+}
+
+function changeWindowLight() {
+  if (Math.round(windowOpacity * 10) / 10 == 0.8) {
+    lowWindowLight = true;
+  }
+  if (Math.round(windowOpacity * 10) / 10 == 0.1) {
+    lowWindowLight = false;
+  }
+
+  // Windows light change only at takeoff and after alien arms stop moving (yBase <= 350)
+  if (lowWindowLight && !landing && yBase <= 320) {
+    windowOpacity -= 0.1
+  }
+  if (!lowWindowLight && !landing && yBase <= 320) {
+    windowOpacity += 0.1
+  }
+  if (landing) {
+    windowOpacity = 0.8
+  }
 }
 
 function addUFO() {
