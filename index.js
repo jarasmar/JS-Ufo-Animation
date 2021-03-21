@@ -35,6 +35,13 @@ function createLandingPlanet() {
   ctx.fillStyle = grd;
   ctx.fill();  
 
+  buildLightCraters() 
+  buildDarkCrater(700);
+  buildDarkCrater(0);
+}
+
+// Functions to Create Craters
+function buildLightCraters() {
   // Crater A
   ctx.beginPath();
   ctx.ellipse(200, 440, 120, 70, 0, Math.PI, 0);
@@ -48,6 +55,7 @@ function createLandingPlanet() {
   ctx.ellipse(200, 385, 40, 5, 0, 2*Math.PI, 0);
   ctx.fillStyle = "rgba(187, 71, 76, 1)";
   ctx.fill(); 
+
 
   // Crater B
   ctx.beginPath();
@@ -78,6 +86,20 @@ function createLandingPlanet() {
   ctx.fill(); 
 }
 
+function buildDarkCrater(xAxis) {
+  ctx.beginPath();
+  ctx.ellipse(xAxis, 460, 80, 50, 0, Math.PI, 0);
+  ctx.fillStyle = "rgba(71, 0, 68, .2)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(xAxis, 420, 50, 10, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(100, 1, 73, 1)";
+  ctx.fill(); 
+  ctx.beginPath();
+  ctx.ellipse(xAxis, 425, 40, 5, 0, 2*Math.PI, 0);
+  ctx.fillStyle = "rgba(187, 71, 76, 1)";
+  ctx.fill();   
+}
 
 // Functions for building Sky
 function addPlanets() {
@@ -470,6 +492,6 @@ function muteMusic(){
 }
 
 // Initialise Animation and Sound
-// playMusic()
+playMusic()
 soundBtn.style.display="none";
 setInterval(fillCanvas, 15)
