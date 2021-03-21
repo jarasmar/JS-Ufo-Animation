@@ -11,6 +11,7 @@ let landing = true;
 
 let armMove = 0;
 let armMoveUp = false;
+let stopArms = true;
 
 // Functions for Building Background
 // Landing Planet
@@ -201,7 +202,19 @@ function controlAlienArms() {
   if (armMove == 5) {
     armMoveUp = true
   }
-  armMoveUp ? armMove-- : armMove++
+
+  // Arms move only at the moment of landing
+  if(yBase <= 400 && yBase >= 350) {
+    stopArms = false
+  } else {
+    stopArms = true;
+  }
+
+  if (armMoveUp && !stopArms) {
+    armMove--
+  } else if(!armMoveUp && !stopArms) {
+    armMove++
+  } 
 }
 
 // Functions for Building UFO Structure
