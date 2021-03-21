@@ -260,6 +260,14 @@ function addUFO() {
   addUfoLight();
 }
 
-// Call functions
-addBackground();
-addUFO();
+
+// Render everything from scratch every x interval
+function fillCanvas() {
+  // Clear the previous elements
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  addBackground();
+  addUFO(); 
+}
+
+setInterval(fillCanvas, 10)
