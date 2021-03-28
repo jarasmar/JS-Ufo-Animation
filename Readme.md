@@ -65,9 +65,12 @@ Open the file `index.html` in your browser.
 
 
 ## Color Palette
-- Dark Purple (Sky): rgba(71, 0, 68, 1) - #470044
-- Medium Purple (Sky/Planet): rgba(100, 1, 73, 1) - #640149
-- Plum (Planet): rgba(134, 27, 74, 1) - #861B4A
-- Light Orange (Planet): rgba(247, 185, 80, 1) - #F7B950
-- Yellow (Lights/Stars): rgba(249, 248, 113, 1) - #F9F871
-- Green (Alien): rgba(0, 200, 151, 1) - #00C897
+- Dark Purple (:milky_way:): `rgba(71, 0, 68, 1)` - `#470044`
+- Medium Purple (:milky_way: & :ringed_planet:): `rgba(100, 1, 73, 1)` - `#640149`
+- Plum (:ringed_planet: & :star2:): `rgba(134, 27, 74, 1)` - `#861B4A`
+- Light Orange (:ringed_planet:): `rgba(247, 185, 80, 1)` - `#F7B950`
+- Yellow (:star2: & :bulb:): `rgba(249, 248, 113, 1)` - `#F9F871`
+- Green (:alien:): `rgba(0, 200, 151, 1)` - `#00C897`
+- Blue (:star2:): `rgba(60, 55, 126, 1)` - `#3C377E`
+- Black (:flying_saucer:): `rgba(0, 0, 0, 1)` - `#000000`
+- Aquamarine (:computer:): `rgba(200, 252, 234, 1)` - `#C8FCEA`
