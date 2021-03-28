@@ -1,6 +1,6 @@
-# Create a UFO animation in JS Web App
+# Create a UFO animation in JS Web App :alien::flying_saucer:
 
-To see the deployed app [Click Here](https://jarasmar.github.io/JS-Ufo-Animation/)
+To see the deployed app [Click Here](https://jarasmar.github.io/JS-Ufo-Animation/), don't forget to click on the Sound Icon :speaker::sound: and turn on your speakers.
 
 ![Demo](UFO-Animation-Demo.gif)
 
